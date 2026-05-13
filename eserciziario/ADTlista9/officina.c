@@ -45,6 +45,7 @@ void removeVeicolo(Officina officina, char *targa){
         officina->head=officina->head->next;
         freeVeicolo(temp->info);
         free(temp);
+        return;
     }
 
     struct node *currentNode=officina->head;
@@ -63,14 +64,48 @@ int calcoloIncasso(Officina officina){
     struct node *currentNode=officina->head;
     float totale=0.0;
     while (currentNode != NULL){
-        totale+=getPrezzoRip(currentNode->next->info);
+        totale+=getPrezzoRip(currentNode->info);
         currentNode=currentNode->next;
     }
     return totale;
 }
 
 void dannoMaggiore(Officina officina){
-    
+    struct node *temp=officina->head;
+    Veicolo maxVeicolo=temp->info;
+    float maggiore=getPrezzoRip(temp->info);
+
+    while (temp != NULL){
+        if (getPrezzoRip(temp->info) > maggiore){
+            maggiore=getPrezzoRip(temp->info);
+            maxVeicolo=temp->info;
+
+        }
+        temp=temp->next;
+    }
+    printf("\n--- VEICOLO CON DANNO MAGGIORE ---\n");
+    printf("Targa: %s\n", getTarga(maxVeicolo));
+    printf("Costo stimato: %.2f euro\n", maggiore); 
+}
+
+void printOfficina(Officina officina){
+    struct node *currentNode=officina->head;
+    while (currentNode != NULL){
+        printVeicolo(currentNode->info);
+        currentNode=currentNode->next;
+    }
+}
+
+void freeOfficina(Officina officina){
+    struct node *currentNode=officina->head;
+    while(currentNode != NULL){
+        struct node *temp = currentNode;   // 1. Salvo il nodo in temp
+        currentNode = currentNode->next;   // 2. Mi metto in salvo andando avanti
+        
+        freeVeicolo(temp->info);           // 3. Distruggo l'info di temp
+        free(temp);                        // 4. Distruggo il nodo temp
+    }
+    free(officina);
 }
 
 

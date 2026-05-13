@@ -26,7 +26,7 @@ float getPrezzoRip(Veicolo veicolo){
 }
 
 void printVeicolo(Veicolo veicolo){
-    printf("Veicolo-> %s, Modello-> %s, prezzo di riparazione-> %.2f", veicolo->targa, veicolo->modello, veicolo->prezzoRip);
+    printf("Veicolo-> %s, Modello-> %s, prezzo di riparazione-> %.2f\n", veicolo->targa, veicolo->modello, veicolo->prezzoRip);
 }
 
 void freeVeicolo(Veicolo veicolo){

@@ -25,7 +25,7 @@ int randomSconto() {
 int main() { 
 	srand(time(NULL)); 
 
-		Carrello c1 = createCarrello("Carrello vuoto");
+	Carrello c1 = createCarrello("Carrello vuoto");
 	stampaEordina(c1);
 
 	// 2. Carrello singolo (1 prodotto, sconto 10)

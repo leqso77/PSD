@@ -1,5 +1,5 @@
 main: main.o item.o list.o carrello.o prodotto.o
-	gcc -o main main.o item.o list.o carrello.o prodotto.o
+	gcc -o main.exe main.o item.o list.o carrello.o prodotto.o
 
 main.o: main.c item.c list.c carrello.c prodotto.c
 	gcc -c main.c item.c list.c carrello.c prodotto.c
@@ -17,4 +17,4 @@ prodotto.o: prodotto.c
 	gcc -c prodotto.c
 
 clean:
-	rm -f *.o main
+	rm -f *.o main.exe

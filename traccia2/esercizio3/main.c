@@ -44,7 +44,7 @@ FILE *fp = fopen("input.txt", "r");
                 if (param == NULL) {
                     param = elem;
                     printf("Elemento parametro: %s\nCoda originale: ", (char*)param);
-                } else { // Altrimenti va in coda
+                } else {
                     enqueue(q, elem);
                     printf("%s ", elem);
                 }

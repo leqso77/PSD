@@ -41,7 +41,6 @@ FILE *fp = fopen("input.txt", "r");
                 if (strcmp(parola, "!") == 0) elem = randomItem();
                 else { elem = malloc(j + 1); strcpy(elem, parola); }
 
-                // Se param è vuoto, è la prima parola
                 if (param == NULL) {
                     param = elem;
                     printf("Elemento parametro: %s\nCoda originale: ", (char*)param);
@@ -54,7 +53,7 @@ FILE *fp = fopen("input.txt", "r");
         }
         if (param != NULL) {
             printf("\n");
-            reverseAndFilter(q, param);
+            reverseCoda(q, param);
             
             printf("Coda invertita: ");
             while (!isEmptyQueue(q)) printf("%s ", (char*)dequeue(q));
@@ -65,4 +64,4 @@ FILE *fp = fopen("input.txt", "r");
     fclose(fp);
     return 0;
 }
-
+ 
